@@ -1,0 +1,37 @@
+*{
+  margin:0;
+  padding:0;
+  background-color: #2d2d2d;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box;
+}
+.welcomeText{
+  color: orange;
+  margin:70px;
+  text-align: center;
+}
+.card{
+  width:20rem;
+  margin-left: 150px;
+  outline: none;
+  margin-bottom:20px;
+}
+.card:hover{
+  box-shadow: 5px 10px 20px 1px gray !important ;
+  transform:scale(1.1);
+}
+.card-body{
+  padding:2rem 0 !important;
+  background-color: white;
+}
+
+.card-title{
+  background-color: white;
+  color:orange;
+}
+.card-img{
+  height:180px;
+}
+.btn{
+margin-top:30px;
+}
