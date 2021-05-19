@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 import JobProcessProgress from './JobProcessProgress';
 
 const JobRoles=(props)=> {
@@ -14,7 +15,7 @@ const JobRoles=(props)=> {
             {props.cardTitle}
           </h4>
           <JobProcessProgress barClass={props.progressClass} barPercentage={props.jobProgress}/>
-          <Button class="btn">View Details</Button>
+          <NavLink to='/JobRoleDetailScreen '><Button class="btn">View Details</Button></NavLink>
         </div>
       </div>
     </div>

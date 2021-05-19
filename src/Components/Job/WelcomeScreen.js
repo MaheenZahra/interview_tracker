@@ -3,14 +3,14 @@ import JobRoles from './JobRoles';
 import card1 from '../../assets/cardImage1.jpg';
 import card2 from '../../assets/cardImage2.jpg';
 import card3 from '../../assets/cardImage3.png';
-import './job.css';
+import '../../Styles/jobs.css';
 
 const WelcomeScreen=()=> {
   const jobsList=[
     {
       id:1,
       cardImg:card1,
-      cardTitle:'React Developer',
+      cardTitle:'JavaScript Developer',
       jobProgressClass:'progress-bar bg-success',
       progressPercentage:'50%'
     } , 
