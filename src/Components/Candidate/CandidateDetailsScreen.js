@@ -1,4 +1,5 @@
 import React from 'react';
+import CandidateChart from './CandidateChart';
 import { Table } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -32,6 +33,7 @@ const CandidateDetailsScreen=(props)=> {
        <td>{props.location.state.expSalary}</td> 
   </tr>
      </Table> 
+     <CandidateChart name={props.location.state.name} devScore={props.location.state.devScore} softScore={props.location.state.softScore} styleScore={props.location.state.styleScore} miscScore={props.location.state.miscScore}/>
     </>
   );
 }
