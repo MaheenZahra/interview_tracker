@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {createContext}from 'react';
 import JobRoles from './JobRoles';
 import card1 from '../../assets/cardImage1.jpg';
 import card2 from '../../assets/cardImage2.jpg';
 import card3 from '../../assets/cardImage3.png';
 import '../../Styles/jobs.css';
 
+const BioData =createContext()
 const WelcomeScreen=()=> {
   const jobsList=[
     {
@@ -36,9 +37,14 @@ const WelcomeScreen=()=> {
     </h1>
     <div className="container-fluid justify-content-center">
     <div className="row">
+    
       {jobsList.map(job=>
-        <JobRoles cardImage={job.cardImg} cardTitle={job.cardTitle} progressClass={job.jobProgressClass} jobProgress={job.progressPercentage}/>
+      <BioData.Provider value={{barPercentage:job.progressPercentage,
+                                barClass:job.jobProgressClass}}>
+        <JobRoles key={job.id} cardImage={job.cardImg} cardTitle={job.cardTitle}  />
+        </BioData.Provider>
       )}
+     
     </div>
     </div>
     </>
@@ -46,3 +52,4 @@ const WelcomeScreen=()=> {
 }
 
 export default WelcomeScreen;
+export {BioData};

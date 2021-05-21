@@ -8,18 +8,19 @@ const JobRoles=(props)=> {
     <div>
       <div className="card text-center">
         <div className="overflow">
-          <img src={props.cardImage} alt="Job Role Image" className="card-img top"/>
+          <img src={props.cardImage} alt="Job Role" className="card-img top"/>
         </div>
         <div className="card-body text-dark">
           <h4 className="card-title">
             {props.cardTitle}
           </h4>
-          <JobProcessProgress barClass={props.progressClass} barPercentage={props.jobProgress}/>
-          <NavLink to='/JobRoleDetailScreen '><Button class="btn">View Details</Button></NavLink>
+          <JobProcessProgress  />
+          <NavLink to='/JobRoleDetailScreen'><Button className="btn">View Details</Button></NavLink>
         </div>
       </div>
     </div>
   );
+  //barPercentage={props.jobProgress}barClass={props.progressClass}
 }
 
 export default JobRoles;

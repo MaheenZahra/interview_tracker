@@ -29,3 +29,27 @@
 margin-left:100px;
 margin-bottom:20px;
 }
+.head{
+  margin-top: 100px;
+  color: orange;
+  text-align: center;
+}
+Table{
+  margin-top:100px;
+
+}
+th{
+  background-color: cadetblue;
+  font-size: 18px;
+  color: white;
+}
+td{
+  background-color:palegoldenrod;
+}
+.returnLink{
+  color:white;
+  background-color: orange;
+  padding:3px;
+  margin: 6px;
+  width:120px;
+}
