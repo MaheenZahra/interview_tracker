@@ -1,36 +1,51 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import React from "react";
 
-
-const Candidates=(props)=> {
-  const {candidateName,score,date, devScore, softScore, styleScore,miscScore,currSalary,expSalary}=props;
+const Candidates = (props) => {
+  const {
+    candidateName,
+    interviewDate,
+    devScore,
+    softScore,
+    styleScore,
+    miscScore,
+    currSalary,
+    expSalary,
+  } = props;
+  const totalScore=devScore+softScore+styleScore+miscScore;
   return (
-    <>  
-
-    <div className="container">
-      <div className="row">
-        <div className="col-med-6">
-          <p className='candidateName'>Candidates Name - {candidateName}</p>
-          <p className='candidateScore'>Candidates Score Obtained - {score}/20</p>
-         <NavLink to={ {pathname: `/CandidateDetailsScreen`,
+    <>
+      <div className="container">
+        <div className="row">
+          <div className="col-med-6">
+            <p className="candidateName">Candidates Name - {candidateName}</p>
+            <p className="candidateScore">
+              Total Score Obtained - {totalScore}/20
+            </p>
+           
+            <NavLink
+              to={{
+                pathname: `/CandidateDetailsScreen`,
                 state: {
-                 name:candidateName,
-                 date:date,
-                 devScore:devScore,
-                 softScore:softScore,
-                 styleScore:styleScore,
-                 miscScore:miscScore,
-                 currSalary:currSalary,
-                 expSalary:expSalary
-                  
-                },}}><Button className='btn'>View Details</Button></NavLink>
+                  name: candidateName,
+                  interviewDate,
+                  devScore,
+                  softScore,
+                  styleScore,
+                  miscScore,
+                  currSalary,
+                  expSalary,
+                },
+              }}
+            >
+              <Button className="btn">View Details</Button>
+            </NavLink>
+          </div>
         </div>
       </div>
-    </div>
-  
     </>
   );
-}
+};
 
 export default Candidates;

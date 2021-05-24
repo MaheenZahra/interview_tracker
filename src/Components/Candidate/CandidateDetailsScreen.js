@@ -24,7 +24,7 @@ const CandidateDetailsScreen=(props)=> {
        <tr>
        <td>1</td>
        <td>{props.location.state.name}</td>
-       <td>{props.location.state.date}</td>
+       <td>{props.location.state.interviewDate}</td>
        <td>{props.location.state.devScore}</td>
        <td>{props.location.state.softScore}</td>
        <td>{props.location.state.styleScore}</td>

@@ -1,55 +1,50 @@
-import React, {createContext}from 'react';
-import JobRoles from './JobRoles';
-import card1 from '../../assets/cardImage1.jpg';
-import card2 from '../../assets/cardImage2.jpg';
-import card3 from '../../assets/cardImage3.png';
-import '../../Styles/jobs.css';
+import "../../Styles/jobs.css";
+import React, { createContext } from "react";
+import JobRoles from "./JobRoles";
+import interviews from "../../data/interviews.json";
+import net from "../../assets/net.jpg";
+import nodejs from "../../assets/nodejs.png";
+import placeholder from "../../assets/placeholder.jpg";
+import react from "../../assets/react.jpg";
 
-const BioData =createContext()
-const WelcomeScreen=()=> {
-  const jobsList=[
-    {
-      id:1,
-      cardImg:card1,
-      cardTitle:'JavaScript Developer',
-      jobProgressClass:'progress-bar bg-success',
-      progressPercentage:'50%'
-    } , 
-    {
-      id:2,
-      cardImg:card2,
-      cardTitle:'.Net Developer',
-      jobProgressClass:'progress-bar bg-danger',
-      progressPercentage:'20%'
-    },
-    {
-      id:3,
-      cardImg:card3,
-      cardTitle:'Node.js Developer',
-      jobProgressClass:'progress-bar bg-success',
-      progressPercentage:'75%'
-    }
-                ]
+const BioData = createContext();
+const WelcomeScreen = () => {
   return (
     <>
-    <h1 className='welcomeText'>
-    _ Welcome to Interview Tracker Dashboard _
-    </h1>
-    <div className="container-fluid justify-content-center">
-    <div className="row">
-    
-      {jobsList.map(job=>
-      <BioData.Provider value={{barPercentage:job.progressPercentage,
-                                barClass:job.jobProgressClass}}>
-        <JobRoles key={job.id} cardImage={job.cardImg} cardTitle={job.cardTitle}  />
-        </BioData.Provider>
-      )}
-     
-    </div>
-    </div>
+      <h1 className="welcomeText">
+        _ Welcome to Interview Tracker Dashboard _
+      </h1>
+      <div className="container-fluid justify-content-center">
+        <div className="row">
+          {interviews.map((job) => (
+            <BioData.Provider
+              value={{
+                barPercentage: job.progress,
+                barClass:job.progress<50?'progress-bar bg-danger': 'progress-bar bg-success'
+              }}
+              key={`${job.id}-context`}
+            >
+              <JobRoles
+                key={`${job.id}-roles`}
+                id={job.id}
+                cardImage={
+                  job.image === "react"
+                    ? react
+                    : job.image === "net"
+                    ? net
+                    : job.image === "nodejs"
+                    ? nodejs
+                    : placeholder
+                }
+                cardTitle={job.role}
+              />
+            </BioData.Provider>
+          ))}
+        </div>
+      </div>
     </>
   );
-}
+};
 
 export default WelcomeScreen;
-export {BioData};
+export { BioData };
